@@ -1,0 +1,4 @@
+export CONTAINER_NAME=
+export DB_USER=
+export DB_NAME=
+export DB_PASSWORD=

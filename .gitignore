@@ -1,1 +1,3 @@
 .docker/database/
+**/backup_*.sql
+env_vars.sh
