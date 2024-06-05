@@ -31,11 +31,11 @@ services:
     ports:
       - "6379:6379"
     command: [ "redis-server", "--appendonly", "yes" ]
-    healthcheck:
-      test: [ "CMD", "redis-cli", "ping" ]
-      interval: 30s
-      timeout: 10s
-      retries: 5
+    # healthcheck:
+    #   test: [ "CMD", "redis-cli", "ping" ]
+    #   interval: 30s
+    #   timeout: 10s
+    #   retries: 5
     networks:
       - ndnetwork
 
@@ -46,3 +46,4 @@ volumes:
 
 networks:
   ndnetwork:
+    driver: bridge
