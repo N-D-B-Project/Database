@@ -15,6 +15,7 @@ model Guild {
   Name               String
   Settings           GuildSettings?
   GuildReactionRoles GuildReactionRoles[]
+  Tickets            Tickets[]
   createdAt          DateTime             @default(now())
   updatedAt          DateTime             @default(now())
   databaseVersion    String               @default("API")
@@ -23,13 +24,14 @@ model Guild {
 }
 
 model GuildSettings {
-  id         String   @id @default(uuid())
-  ReactionDM Boolean  @default(true)
-  Premium    Boolean  @default(false)
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @default(now())
-  guild      Guild    @relation(fields: [guildId], references: [id])
-  guildId    String   @unique
+  id         String       @id @default(uuid())
+  ReactionDM Boolean      @default(true)
+  Premium    Boolean      @default(false)
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @default(now())
+  tickets    TicketType[]
+  guild      Guild        @relation(fields: [guildId], references: [id])
+  guildId    String       @unique
 }
 
 model GuildReactionRoles {
@@ -45,10 +47,40 @@ model GuildReactionRoles {
   guildId   String
 }
 
+model Tickets {
+  id           String             @id @default(uuid())
+  userId       String?
+  guildId      String?
+  ticketTypeId String
+  status       GuildTicketsStatus @default(OPEN)
+  createdAt    DateTime           @default(now())
+  updatedAt    DateTime           @default(now())
+  User         User?              @relation(fields: [userId], references: [id])
+  Guild        Guild?             @relation(fields: [guildId], references: [id])
+  TicketType   TicketType         @relation(fields: [ticketTypeId], references: [id])
+}
+
+enum GuildTicketsStatus {
+  OPEN
+  CLOSED
+}
+
+model TicketType {
+  id              String         @id @default(uuid())
+  name            String         @db.VarChar(25)
+  description     String         @db.VarChar(256)
+  message         String         @db.Text()
+  emoji           String
+  Tickets         Tickets[]
+  GuildSettings   GuildSettings? @relation(fields: [guildSettingsId], references: [id])
+  guildSettingsId String?
+}
+
 model User {
   id              String        @id
   Settings        UserSettings?
   APIUser         APIUser?
+  Tickets         Tickets[]
   createdAt       DateTime      @default(now())
   updatedAt       DateTime      @default(now())
   databaseVersion String        @default("API")
