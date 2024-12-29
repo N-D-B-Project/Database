@@ -1,19 +1,19 @@
-version: "3.8"
-
 services:
   ndbase:
-    image: bitnami/postgresql:15.6.0
+    image: bitnami/postgresql:17.2.0
     container_name: ndbase
     restart: always
     ports:
-      - "5432:5432"
+      - "${DatabasePort}:${DatabasePort}"
     expose:
-      - 5432
+      - ${DatabasePort}
     volumes:
       - ndbase_data:/bitnami/postgresql
     environment:
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRESQL_USERNAME=${DatabaseUsername}
+      - POSTGRESQL_PASSWORD=${DatabasePassword}
+      - POSTGRESQL_PORT_NUMBER=${DatabasePort}
+      - POSTGRESQL_DB=${DatabaseName}
     healthcheck:
       test: [ "CMD-SHELL", "pg_isready -U postgresql" ]
       interval: 30s
