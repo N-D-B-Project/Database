@@ -34,15 +34,17 @@ model GuildSettings {
 
 model GuildReactionRoles {
   id        String   @id @default(uuid())
-  Message   String
-  Channel   String
-  Role      String
-  Emoji     String
-  Option    Int
+  message   String
+  channel   String
+  role      String
+  emoji     String
+  option    Int
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   guild     Guild    @relation(fields: [guildId], references: [id])
   guildId   String
+
+  @@unique([guildId, channel, message, role, emoji, option], name: "unique_reaction_role")
 }
 
 model User {
