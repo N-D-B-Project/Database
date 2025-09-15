@@ -69,7 +69,7 @@ enum GuildTicketsStatus {
 
 model TicketType {
   id              String         @id @default(uuid())
-  name            String         @db.VarChar(25)
+  name            String         @unique @db.VarChar(25)
   description     String         @db.VarChar(256)
   message         String         @db.Text()
   emoji           String
