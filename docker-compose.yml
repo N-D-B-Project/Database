@@ -4,7 +4,7 @@ services:
     container_name: ndbase
     restart: always
     ports:
-      - "${DatabasePort}:5432"
+      - "${DATABASE_PORT}:5432"
     volumes:
       - ndbase_data:/bitnami/postgresql
     environment:
