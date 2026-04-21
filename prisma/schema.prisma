@@ -24,14 +24,25 @@ model Guild {
 }
 
 model GuildSettings {
-  id         String       @id @default(uuid())
-  ReactionDM Boolean      @default(true)
-  Premium    Boolean      @default(false)
-  createdAt  DateTime     @default(now())
-  updatedAt  DateTime     @default(now())
-  tickets    TicketType[]
-  guild      Guild        @relation(fields: [guildId], references: [id])
-  guildId    String       @unique
+  id                String       @id @default(uuid())
+  ReactionDM        Boolean      @default(true)
+  Premium           Boolean      @default(false)
+  ticketPanelTitle      String?
+  ticketPanelDesc       String?      @db.Text()
+  ticketPanelColor      String?      @db.VarChar(7)
+  ticketPanelThumbnail  String?
+  ticketPanelImage      String?
+  ticketPanelFooter     String?
+  ticketPanelBtnLabel   String?
+  ticketPanelBtnEmoji   String?
+  ticketDefaultRole     String?
+  ticketDefaultCategory String?
+  ticketDefaultMessage  String?      @db.Text()
+  createdAt         DateTime     @default(now())
+  updatedAt         DateTime     @default(now())
+  tickets           TicketType[]
+  guild             Guild        @relation(fields: [guildId], references: [id])
+  guildId           String       @unique
 }
 
 model GuildReactionRoles {
@@ -51,6 +62,7 @@ model GuildReactionRoles {
 
 model Tickets {
   id           String             @id @default(uuid())
+  channelId    String?
   userId       String?
   guildId      String?
   ticketTypeId String
@@ -73,6 +85,8 @@ model TicketType {
   description     String         @db.VarChar(256)
   message         String         @db.Text()
   emoji           String
+  supportRoleId   String?
+  categoryId      String?
   Tickets         Tickets[]
   GuildSettings   GuildSettings? @relation(fields: [guildSettingsId], references: [id])
   guildSettingsId String?
