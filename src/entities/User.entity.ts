@@ -1,6 +1,6 @@
 import { Column, Entity, Index, OneToMany, OneToOne } from "typeorm";
-import { BaseSnowflakeEntity } from "./base/BaseSnowflakeEntity";
 import type { APIUser } from "./APIUser.entity";
+import { BaseSnowflakeEntity } from "./base/BaseSnowflakeEntity";
 import type { Tickets } from "./Tickets.entity";
 import type { UserSettings } from "./UserSettings.entity";
 

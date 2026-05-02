@@ -1,6 +1,6 @@
 import { Column, Entity, Index, JoinColumn, OneToOne, Unique } from "typeorm";
-import { UseMixins, WithUserScope } from "./base/mixins";
 import { BaseUUIDEntity } from "./base/BaseUUIDEntity";
+import { UseMixins, WithUserScope } from "./base/mixins";
 import type { User } from "./User.entity";
 
 @Unique("uq_api_users_user_id", ["userId"])

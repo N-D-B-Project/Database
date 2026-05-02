@@ -7,8 +7,8 @@ import {
 	OneToOne,
 	Unique,
 } from "typeorm";
-import { UseMixins, WithGuildScope } from "./base/mixins";
 import { BaseUUIDEntity } from "./base/BaseUUIDEntity";
+import { UseMixins, WithGuildScope } from "./base/mixins";
 import type { Guild } from "./Guild.entity";
 import type { TicketType } from "./TicketType.entity";
 
@@ -28,7 +28,12 @@ export class GuildSettings extends UseMixins([WithGuildScope], BaseUUIDEntity) {
 	@Column({ name: "ticket_panel_desc", type: "text", nullable: true })
 	ticketPanelDesc: string | null;
 
-	@Column({ name: "ticket_panel_color", type: "varchar", length: 7, nullable: true })
+	@Column({
+		name: "ticket_panel_color",
+		type: "varchar",
+		length: 7,
+		nullable: true,
+	})
 	ticketPanelColor: string | null;
 
 	@Column({ name: "ticket_panel_thumbnail", type: "varchar", nullable: true })

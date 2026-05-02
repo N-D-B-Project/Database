@@ -1,9 +1,13 @@
-import { DefaultNamingStrategy } from "typeorm";
 import type { NamingStrategyInterface, Table } from "typeorm";
+import { DefaultNamingStrategy } from "typeorm";
 
-export class NamingStrategy extends DefaultNamingStrategy implements NamingStrategyInterface {
-	primaryKeyName(tableOrName: Table | string, columnNames: string[]): string {
-		const table = typeof tableOrName === "string" ? tableOrName : tableOrName.name;
+export class NamingStrategy
+	extends DefaultNamingStrategy
+	implements NamingStrategyInterface
+{
+	primaryKeyName(tableOrName: Table | string, _columnNames: string[]): string {
+		const table =
+			typeof tableOrName === "string" ? tableOrName : tableOrName.name;
 		return `pk_${table}`;
 	}
 
@@ -13,7 +17,8 @@ export class NamingStrategy extends DefaultNamingStrategy implements NamingStrat
 		_referencedTablePath?: string,
 		_referencedColumnNames?: string[],
 	): string {
-		const table = typeof tableOrName === "string" ? tableOrName : tableOrName.name;
+		const table =
+			typeof tableOrName === "string" ? tableOrName : tableOrName.name;
 		return `fk_${table}_${columnNames.join("_")}`;
 	}
 }

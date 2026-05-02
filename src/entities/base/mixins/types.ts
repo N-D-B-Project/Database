@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/suspicious/noExplicitAny: Necessary for Mixins */
 export type AbstractConstructor<T = object> = abstract new (
 	...args: any[]
 ) => T;

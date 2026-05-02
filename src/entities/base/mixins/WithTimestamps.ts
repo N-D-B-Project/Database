@@ -1,7 +1,10 @@
+/** biome-ignore-all lint/suspicious/noExplicitAny: Necessary for Mixins */
 import { CreateDateColumn, UpdateDateColumn } from "typeorm";
 import type { AbstractConstructor, MixinReturn } from "./types";
 
-export function WithTimestamps<TBase extends AbstractConstructor>(Base: TBase): MixinReturn<TBase, { createdAt: Date; updatedAt: Date }> {
+export function WithTimestamps<TBase extends AbstractConstructor>(
+	Base: TBase,
+): MixinReturn<TBase, { createdAt: Date; updatedAt: Date }> {
 	abstract class TimestampedMixin extends Base {
 		@CreateDateColumn({ name: "created_at" })
 		public createdAt: Date;

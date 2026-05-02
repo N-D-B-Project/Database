@@ -1,6 +1,6 @@
 import { Column, Entity, Index, JoinColumn, ManyToOne, Unique } from "typeorm";
-import { UseMixins, WithGuildScope } from "./base/mixins";
 import { BaseUUIDEntity } from "./base/BaseUUIDEntity";
+import { UseMixins, WithGuildScope } from "./base/mixins";
 import type { Guild } from "./Guild.entity";
 
 @Unique("uq_guild_reaction_roles_composite", [
@@ -14,7 +14,10 @@ import type { Guild } from "./Guild.entity";
 @Index("idx_guild_reaction_roles_guild_id", ["guildId"])
 @Index("idx_guild_reaction_roles_message", ["message"])
 @Entity("guild_reaction_roles")
-export class GuildReactionRoles extends UseMixins([WithGuildScope], BaseUUIDEntity) {
+export class GuildReactionRoles extends UseMixins(
+	[WithGuildScope],
+	BaseUUIDEntity,
+) {
 	@Column({ name: "message", type: "varchar" })
 	message: string;
 

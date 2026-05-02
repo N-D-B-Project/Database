@@ -1,45 +1,45 @@
 {
-  "name": "@ndb/database",
-  "version": "1.0.0",
-  "description": "Shared TypeORM entities and DataSource for N-D-B Project",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "help": "node scripts/help.js",
-    "build": "tsc --project tsconfig.json",
-    "migration:generate": "node --env-file=../.env.development ./node_modules/typeorm/cli-ts-node-commonjs.js -d src/datasource.ts migration:generate",
-    "migration:run": "node --env-file=../.env.development ./node_modules/typeorm/cli-ts-node-commonjs.js -d src/datasource.ts migration:run",
-    "migration:revert": "node --env-file=../.env.development ./node_modules/typeorm/cli-ts-node-commonjs.js -d src/datasource.ts migration:revert",
-    "migration:show": "node --env-file=../.env.development ./node_modules/typeorm/cli-ts-node-commonjs.js -d src/datasource.ts migration:show",
-    "seed:run": "node --env-file=../.env.development ./node_modules/typeorm-extension/bin/cli.cjs seed:run -d dist/datasource.js"
-  },
-  "scriptsInfo": {
-    "build": "Compile TypeScript to dist/",
-    "migration:generate": "Generate a new migration by diffing entities against the database",
-    "migration:run": "Apply all pending migrations",
-    "migration:revert": "Revert the last applied migration",
-    "migration:show": "List all migrations and their status",
-    "seed:run": "Run seeders via typeorm-extension"
-  },
-  "dependencies": {
-    "dotenv": "^17.4.2",
-    "reflect-metadata": "^0.2.2",
-    "typeorm": "^0.3.25",
-    "typeorm-extension": "^3.6.3"
-  },
-  "devDependencies": {
-    "@types/node": "^25.6.0",
-    "pg": "^8.13.3",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.9.3"
-  },
-  "peerDependencies": {
-    "pg": ">=8.0.0"
-  },
-  "engines": {
-    "node": ">=20.9.0"
-  }
+	"name": "@ndb/database",
+	"version": "1.0.0",
+	"description": "Shared TypeORM entities and DataSource for N-D-B Project",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"help": "node scripts/help.js",
+		"build": "tsc --project tsconfig.json",
+		"migration:generate": "node --env-file=../.env.development ./node_modules/typeorm/cli-ts-node-commonjs.js -d src/datasource.ts migration:generate",
+		"migration:run": "node --env-file=../.env.development ./node_modules/typeorm/cli-ts-node-commonjs.js -d src/datasource.ts migration:run",
+		"migration:revert": "node --env-file=../.env.development ./node_modules/typeorm/cli-ts-node-commonjs.js -d src/datasource.ts migration:revert",
+		"migration:show": "node --env-file=../.env.development ./node_modules/typeorm/cli-ts-node-commonjs.js -d src/datasource.ts migration:show",
+		"seed:run": "node --env-file=../.env.development ./node_modules/typeorm-extension/bin/cli.cjs seed:run -d dist/datasource.js"
+	},
+	"scriptsInfo": {
+		"build": "Compile TypeScript to dist/",
+		"migration:generate": "Generate a new migration by diffing entities against the database",
+		"migration:run": "Apply all pending migrations",
+		"migration:revert": "Revert the last applied migration",
+		"migration:show": "List all migrations and their status",
+		"seed:run": "Run seeders via typeorm-extension"
+	},
+	"dependencies": {
+		"dotenv": "^17.4.2",
+		"reflect-metadata": "^0.2.2",
+		"typeorm": "^0.3.25",
+		"typeorm-extension": "^3.6.3"
+	},
+	"devDependencies": {
+		"@types/node": "^25.6.0",
+		"pg": "^8.13.3",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.9.3"
+	},
+	"peerDependencies": {
+		"pg": ">=8.0.0"
+	},
+	"engines": {
+		"node": ">=20.9.0"
+	}
 }

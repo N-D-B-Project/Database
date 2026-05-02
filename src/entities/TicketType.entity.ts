@@ -36,10 +36,14 @@ export class TicketType extends BaseUUIDEntity {
 	@Column({ name: "guild_settings_id", type: "varchar", nullable: true })
 	guildSettingsId: string | null;
 
-	@ManyToOne("GuildSettings", (settings: GuildSettings) => settings.ticketTypes, {
-		nullable: true,
-		onDelete: "SET NULL",
-	})
+	@ManyToOne(
+		"GuildSettings",
+		(settings: GuildSettings) => settings.ticketTypes,
+		{
+			nullable: true,
+			onDelete: "SET NULL",
+		},
+	)
 	@JoinColumn({ name: "guild_settings_id" })
 	guildSettings: GuildSettings | null;
 
