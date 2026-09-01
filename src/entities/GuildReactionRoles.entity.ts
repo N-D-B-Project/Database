@@ -1,7 +1,7 @@
 import { Column, Entity, Index, JoinColumn, ManyToOne, Unique } from "typeorm";
-import { BaseUUIDEntity } from "./base/BaseUUIDEntity";
-import { UseMixins, WithGuildScope } from "./base/mixins";
-import type { Guild } from "./Guild.entity";
+import { BaseUUIDEntity } from "./base/BaseUUIDEntity.js";
+import { UseMixins, WithGuildScope } from "./base/mixins/index.js";
+import type { Guild } from "./Guild.entity.js";
 
 @Unique("uq_guild_reaction_roles_composite", [
 	"guildId",

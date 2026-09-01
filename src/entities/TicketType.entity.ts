@@ -7,9 +7,9 @@ import {
 	OneToMany,
 	Unique,
 } from "typeorm";
-import { BaseUUIDEntity } from "./base/BaseUUIDEntity";
-import type { GuildSettings } from "./GuildSettings.entity";
-import type { Tickets } from "./Tickets.entity";
+import { BaseUUIDEntity } from "./base/BaseUUIDEntity.js";
+import type { GuildSettings } from "./GuildSettings.entity.js";
+import type { Tickets } from "./Tickets.entity.js";
 
 @Unique("uq_ticket_types_name", ["name"])
 @Index("idx_ticket_types_guild_settings_id", ["guildSettingsId"])

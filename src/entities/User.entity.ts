@@ -1,8 +1,8 @@
 import { Column, Entity, Index, OneToMany, OneToOne } from "typeorm";
-import type { APIUser } from "./APIUser.entity";
-import { BaseSnowflakeEntity } from "./base/BaseSnowflakeEntity";
-import type { Tickets } from "./Tickets.entity";
-import type { UserSettings } from "./UserSettings.entity";
+import type { APIUser } from "./APIUser.entity.js";
+import { BaseSnowflakeEntity } from "./base/BaseSnowflakeEntity.js";
+import type { Tickets } from "./Tickets.entity.js";
+import type { UserSettings } from "./UserSettings.entity.js";
 
 @Index("idx_users_created_at", ["createdAt"])
 @Entity("users")

@@ -1,6 +1,6 @@
 /** biome-ignore-all lint/suspicious/noExplicitAny: Necessary for Mixins */
 import { CreateDateColumn, UpdateDateColumn } from "typeorm";
-import type { AbstractConstructor, MixinReturn } from "./types";
+import type { AbstractConstructor, MixinReturn } from "./types.js";
 
 export function WithTimestamps<TBase extends AbstractConstructor>(
 	Base: TBase,

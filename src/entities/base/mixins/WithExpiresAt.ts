@@ -1,6 +1,6 @@
 /** biome-ignore-all lint/suspicious/noExplicitAny: Necessary for Mixins */
 import { Column, Index } from "typeorm";
-import type { AbstractConstructor, MixinReturn } from "./types";
+import type { AbstractConstructor, MixinReturn } from "./types.js";
 
 export function WithExpiresAt<TBase extends AbstractConstructor>(
 	Base: TBase,
