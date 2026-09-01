@@ -1,8 +1,8 @@
-export { APIUser } from "./APIUser.entity";
-export { Guild } from "./Guild.entity";
-export { GuildReactionRoles } from "./GuildReactionRoles.entity";
-export { GuildSettings } from "./GuildSettings.entity";
-export { GuildTicketsStatus, Tickets } from "./Tickets.entity";
-export { TicketType } from "./TicketType.entity";
-export { User } from "./User.entity";
-export { UserSettings } from "./UserSettings.entity";
+export { APIUser } from "./APIUser.entity.js";
+export { Guild } from "./Guild.entity.js";
+export { GuildReactionRoles } from "./GuildReactionRoles.entity.js";
+export { GuildSettings } from "./GuildSettings.entity.js";
+export { GuildTicketsStatus, Tickets } from "./Tickets.entity.js";
+export { TicketType } from "./TicketType.entity.js";
+export { User } from "./User.entity.js";
+export { UserSettings } from "./UserSettings.entity.js";

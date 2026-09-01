@@ -1,10 +1,6 @@
-const {
-	name,
-	version,
-	description,
-	scripts,
-	scriptsInfo,
-} = require("../package.json");
+import pkg from "../package.json" with { type: "json" };
+
+const { name, version, description, scripts, scriptsInfo } = pkg;
 
 const c = {
 	cyan: "\x1b[36m",

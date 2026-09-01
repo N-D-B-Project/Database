@@ -1,8 +1,8 @@
-export type { AbstractConstructor, Mixin } from "./types";
-export { UseMixins } from "./UseMixins";
-export { WithExpiresAt } from "./WithExpiresAt";
-export { WithGuildScope } from "./WithGuildScope";
-export { WithSoftDelete } from "./WithSoftDelete";
-export { WithTimestamps } from "./WithTimestamps";
-export { WithUserScope } from "./WithUserScope";
-export { WithVersion } from "./WithVersion";
+export type { AbstractConstructor, Mixin } from "./types.js";
+export { UseMixins } from "./UseMixins.js";
+export { WithExpiresAt } from "./WithExpiresAt.js";
+export { WithGuildScope } from "./WithGuildScope.js";
+export { WithSoftDelete } from "./WithSoftDelete.js";
+export { WithTimestamps } from "./WithTimestamps.js";
+export { WithUserScope } from "./WithUserScope.js";
+export { WithVersion } from "./WithVersion.js";

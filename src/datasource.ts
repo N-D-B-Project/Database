@@ -2,15 +2,15 @@ import "reflect-metadata";
 import type { DataSourceOptions } from "typeorm";
 import { DataSource } from "typeorm";
 import type { SeederOptions } from "typeorm-extension";
-import { APIUser } from "./entities/APIUser.entity";
-import { Guild } from "./entities/Guild.entity";
-import { GuildReactionRoles } from "./entities/GuildReactionRoles.entity";
-import { GuildSettings } from "./entities/GuildSettings.entity";
-import { Tickets } from "./entities/Tickets.entity";
-import { TicketType } from "./entities/TicketType.entity";
-import { User } from "./entities/User.entity";
-import { UserSettings } from "./entities/UserSettings.entity";
-import { NamingStrategy } from "./naming-strategy";
+import { APIUser } from "./entities/APIUser.entity.js";
+import { Guild } from "./entities/Guild.entity.js";
+import { GuildReactionRoles } from "./entities/GuildReactionRoles.entity.js";
+import { GuildSettings } from "./entities/GuildSettings.entity.js";
+import { Tickets } from "./entities/Tickets.entity.js";
+import { TicketType } from "./entities/TicketType.entity.js";
+import { User } from "./entities/User.entity.js";
+import { UserSettings } from "./entities/UserSettings.entity.js";
+import { NamingStrategy } from "./naming-strategy.js";
 
 const isProduction = process.env.NODE_ENV === "production";
 
@@ -35,8 +35,8 @@ const options: DataSourceOptions & SeederOptions = {
 		UserSettings,
 		APIUser,
 	],
-	migrations: [`${__dirname}/migrations/*{.ts,.js}`],
-	seeds: [`${__dirname}/seeds/MainSeeder{.ts,.js}`],
+	migrations: [`${import.meta.dirname}/migrations/*{.ts,.js}`],
+	seeds: [`${import.meta.dirname}/seeds/MainSeeder{.ts,.js}`],
 };
 
 export const AppDataSource = new DataSource(options);

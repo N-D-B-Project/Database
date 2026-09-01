@@ -7,10 +7,10 @@ import {
 	OneToOne,
 	Unique,
 } from "typeorm";
-import { BaseUUIDEntity } from "./base/BaseUUIDEntity";
-import { UseMixins, WithGuildScope } from "./base/mixins";
-import type { Guild } from "./Guild.entity";
-import type { TicketType } from "./TicketType.entity";
+import { BaseUUIDEntity } from "./base/BaseUUIDEntity.js";
+import { UseMixins, WithGuildScope } from "./base/mixins/index.js";
+import type { Guild } from "./Guild.entity.js";
+import type { TicketType } from "./TicketType.entity.js";
 
 @Unique("uq_guild_settings_guild_id", ["guildId"])
 @Index("idx_guild_settings_guild_id", ["guildId"])

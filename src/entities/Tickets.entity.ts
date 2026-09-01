@@ -1,8 +1,8 @@
 import { Column, Entity, Index, JoinColumn, ManyToOne } from "typeorm";
-import { BaseUUIDEntity } from "./base/BaseUUIDEntity";
-import type { Guild } from "./Guild.entity";
-import type { TicketType } from "./TicketType.entity";
-import type { User } from "./User.entity";
+import { BaseUUIDEntity } from "./base/BaseUUIDEntity.js";
+import type { Guild } from "./Guild.entity.js";
+import type { TicketType } from "./TicketType.entity.js";
+import type { User } from "./User.entity.js";
 
 export enum GuildTicketsStatus {
 	OPEN = "OPEN",

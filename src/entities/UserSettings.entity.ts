@@ -1,7 +1,7 @@
 import { Column, Entity, Index, JoinColumn, OneToOne, Unique } from "typeorm";
-import { BaseUUIDEntity } from "./base/BaseUUIDEntity";
-import { UseMixins, WithUserScope } from "./base/mixins";
-import type { User } from "./User.entity";
+import { BaseUUIDEntity } from "./base/BaseUUIDEntity.js";
+import { UseMixins, WithUserScope } from "./base/mixins/index.js";
+import type { User } from "./User.entity.js";
 
 @Unique("uq_user_settings_user_id", ["userId"])
 @Index("idx_user_settings_user_id", ["userId"])
